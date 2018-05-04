@@ -7,7 +7,7 @@
   "homepage": "https://github.com/succ123/vue-scroller-extend",
   "repository": {
     "type": "git",
-    "url": "https://github.com/succ123/vue-scroller-extend.git"
+    "url": "git+https://github.com/succ123/vue-scroller-extend.git"
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --host=0.0.0.0 --port=8080",
@@ -39,5 +39,12 @@
     "vue-template-compiler": "^2.2.6",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/succ123/vue-scroller-extend/issues"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "license": "ISC"
 }

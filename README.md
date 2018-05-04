@@ -1,4 +1,4 @@
-# Vue Scroller ![version](https://img.shields.io/badge/version-%20v2.2.0%20-green.svg) ![vue](https://img.shields.io/badge/vue-%20v2.1%20-green.svg) 
+# Vue Scroller Extend ![version](https://img.shields.io/badge/version-%20v1.1.0%20-green.svg) ![vue](https://img.shields.io/badge/vue-%20v2.1%20-green.svg) 
 ## 原作者
 [Vue Scroller](https://github.com/wangdahoo/vue-scroller) 
 
