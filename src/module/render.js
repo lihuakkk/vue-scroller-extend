@@ -1,4 +1,4 @@
-function getContentRender(content) {
+function getContentRender(content, callback) {
   var global = window;
 
   var docStyle = document.documentElement.style;
@@ -27,21 +27,32 @@ function getContentRender(content) {
   var perspectiveProperty = vendorPrefix + "Perspective";
   var transformProperty = vendorPrefix + "Transform";
 
+  function onscrollCallback(left, top, zoom){
+    if (typeof callback === 'function') {
+      callback({
+          left:left,
+          top:top,
+          zoom:zoom
+      })
+    }
+  }
   if (helperElem.style[perspectiveProperty] !== undef) {
-
     return function(left, top, zoom) {
+      onscrollCallback(left, top, zoom);
       content.style[transformProperty] = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')';
     };
 
   } else if (helperElem.style[transformProperty] !== undef) {
 
     return function(left, top, zoom) {
+      onscrollCallback(left, top, zoom);
       content.style[transformProperty] = 'translate(' + (-left) + 'px,' + (-top) + 'px) scale(' + zoom + ')';
     };
 
   } else {
 
     return function(left, top, zoom) {
+      onscrollCallback(left, top, zoom);
       content.style.marginLeft = left ? (-left/zoom) + 'px' : '';
       content.style.marginTop = top ? (-top/zoom) + 'px' : '';
       content.style.zoom = zoom || '';

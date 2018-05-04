@@ -186,7 +186,7 @@
     props: {
       onRefresh: Function,
       onInfinite: Function,
-
+      onScroll: Function,
       refreshText: {
         type: String,
         default: '下拉刷新'
@@ -286,7 +286,7 @@
         loadingState: 0, // 0: stop, 1: loading, 2: stopping loading
 
         showLoading: false,
-
+        prevTop:undefined,
         container: undefined,
         content: undefined,
         scroller: undefined,
@@ -306,7 +306,7 @@
       if (this.cssClass) this.content.classList.add(this.cssClass)
       this.pullToRefreshLayer = this.content.getElementsByTagName("div")[0]
 
-      let render = getContentRender(this.content)
+      let render = getContentRender(this.content, this.scrollCallback)
 
       let scrollerOptions = {
         scrollingX: false
@@ -356,6 +356,11 @@
         }, 10);
       }
 
+      if (this.onScroll) {
+          this.$on('onScroll', (obj)=>{
+              this.onScroll(obj)
+          })
+      }
       // setup scroller
       let rect = this.container.getBoundingClientRect()
       this.scroller.setPosition(rect.left + this.container.clientLeft, rect.top + this.container.clientTop)
@@ -481,6 +486,10 @@
         }
       },
 
+      getScrollMax() {
+        return this.scroller.getScrollMax();
+      },
+
       resetLoadingState() {
         let {left, top, zoom} = this.scroller.getValues()
         let container = this.container;
@@ -493,7 +502,14 @@
         } else {
           this.loadingState = 0
         }
-      }
+      },
+      scrollCallback({left, top, zoom}){   // line 505
+        // 限制调用频率
+        if(parseInt(this.prevTop) !== parseInt(top)){
+            this.$emit('onScroll', {left, top, zoom})
+        }
+        this.prevTop =  top;
+      },
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar title="Load More & No Data"></nav-bar>
-    <scroller :on-infinite="infinite" ref="my_scroller">
+    <scroller :on-infinite="infinite" ref="my_scroller" :on-scroll="onscroll">
       <div style="height: 44px;"></div>
       <div v-for="(item, index) in items"
           class="row" :class="{'grey-bg': index % 2 == 0}">
@@ -51,6 +51,9 @@
             done()
           })
         }, 1500)
+      },
+      onscroll(position){
+        console.log('position', position);
       }
     }
   }

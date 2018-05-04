@@ -1,13 +1,13 @@
 {
-  "name": "vue-scroller",
-  "version": "2.2.4",
-  "description": "Vue component for smooth scrolling, pull to refresh & infinite loading.",
-  "main": "dist/vue-scroller.min.js",
-  "author": "wangdahoo <157195705@qq.com>",
-  "homepage": "https://github.com/wangdahoo/vue-scroller",
+  "name": "vue-scroller-extend",
+  "version": "1.0.0",
+  "description": "A vue-scroller extend. Add onscroll event",
+  "main": "dist/vue-scroller-extend.min.js",
+  "author": "lihuakun <825742387@qq.com>",
+  "homepage": "https://github.com/succ123/vue-scroller-extend",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wangdahoo/vue-scroller.git"
+    "url": "https://github.com/succ123/vue-scroller-extend.git"
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --host=0.0.0.0 --port=8080",

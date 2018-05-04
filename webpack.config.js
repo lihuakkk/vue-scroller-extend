@@ -34,7 +34,7 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'vue-scroller': path.resolve(__dirname, './src')
+      'vue-scroller-extend': path.resolve(__dirname, './src')
       // 'vue-scroller': path.resolve(__dirname, './dist/vue-scroller.min.js')
     }
   },
@@ -70,8 +70,8 @@ if (process.env.NODE_ENV === 'production') {
     module.exports.entry = './src/index.js';
     module.exports.output = {
       path: path.resolve(__dirname, './dist'),
-      filename: 'vue-scroller.min.js',
-      library: 'VueScroller',
+      filename: 'vue-scroller-extend.min.js',
+      library: 'VueScrollerExtend',
       libraryTarget: 'umd',
       umdNamedDefine: true
     };
@@ -85,7 +85,7 @@ if (process.env.NODE_ENV === 'production') {
     // Banner
     var moment = require('moment');
     var pkg = require('./package.json');
-    var banner = 'Vue Scroller \nversion: ' + pkg.version + ' \nrepo: https://github.com/wangdahoo/vue-scroller \nbuild: ' + moment().format('YYYY-MM-DD HH:mm:ss')
+    var banner = 'Vue Scroller Extend \nversion: ' + pkg.version + ' \nrepo: https://github.com/succ123/vue-scroller-extend \nbuild: ' + moment().format('YYYY-MM-DD HH:mm:ss')
     module.exports.plugins.push(
       new webpack.BannerPlugin({ 
         banner: banner,
